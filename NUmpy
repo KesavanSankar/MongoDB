@@ -1,0 +1,2302 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ovg_KuYPlo4l"
+      },
+      "source": [
+        "# Numpy\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "5EJKprZqlo5C"
+      },
+      "source": [
+        "#### 1. Import the numpy package under the name `np` (★☆☆) \n",
+        "(**hint**: import … as …)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "zwh-EcRglo5G"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aAQnNsWdlo5K"
+      },
+      "source": [
+        "#### 2. Print the numpy version and the configuration (★☆☆) \n",
+        "(**hint**: np.\\_\\_version\\_\\_, np.show\\_config)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Yd4c8cX5lo5T"
+      },
+      "outputs": [],
+      "source": [
+        "print(np.__version__)\n",
+        "np.show_config()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aK3zdw_ylo5U"
+      },
+      "source": [
+        "#### 3. Create a null vector of size 10 (★☆☆) \n",
+        "(**hint**: np.zeros)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Kap0FpbRlo5W"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros(10)\n",
+        "print(Z"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zR55X3Kylo5b"
+      },
+      "source": [
+        "#### 4.  How to find the memory size of any array (★☆☆) \n",
+        "(**hint**: size, itemsize)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "KlSBbPAjlo5m"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros((10,10))\n",
+        "print(\"%d bytes\" % (Z.size * Z.itemsize))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MdDdYHeIlo5n"
+      },
+      "source": [
+        "#### 5.  How to get the documentation of the numpy add function from the command line? (★☆☆) \n",
+        "(**hint**: np.info)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "6g_499Fslo5p"
+      },
+      "outputs": [],
+      "source": [
+        "%run `python -c \"import numpy; numpy.info(numpy.add)\"`"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "a3gR3lhBlo5q"
+      },
+      "source": [
+        "#### 6.  Create a null vector of size 10 but the fifth value which is 1 (★☆☆) \n",
+        "(**hint**: array\\[4\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ivEQNCKFlo53"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros(10)\n",
+        "Z[4] = 1\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RobwjZ8Llo56"
+      },
+      "source": [
+        "#### 7.  Create a vector with values ranging from 10 to 49 (★☆☆) \n",
+        "(**hint**: np.arange)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "qsJdE7vxlo59"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(10,50)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "isOMU5ZClo6E"
+      },
+      "source": [
+        "#### 8.  Reverse a vector (first element becomes last) (★☆☆) \n",
+        "(**hint**: array\\[::-1\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IjhwDElxlo6K"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(50)\n",
+        "Z = Z[::-1]\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7yoFFfK4lo6L"
+      },
+      "source": [
+        "#### 9.  Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆) \n",
+        "(**hint**: reshape)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "1GTyGCHWlo6M"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(9).reshape(3, 3)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "P5Ur5ODalo6M"
+      },
+      "source": [
+        "#### 10. Find indices of non-zero elements from \\[1,2,0,0,4,0\\] (★☆☆) \n",
+        "(**hint**: np.nonzero)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "z7xx3LlBlo6O"
+      },
+      "outputs": [],
+      "source": [
+        "nz = np.nonzero([1,2,0,0,4,0])\n",
+        "print(nz)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "38ZpaqyWlo6P"
+      },
+      "source": [
+        "#### 11. Create a 3x3 identity matrix (★☆☆) \n",
+        "(**hint**: np.eye)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "tbGlqMVslo6V"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.eye(3)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Hg-hDlOalo6Y"
+      },
+      "source": [
+        "#### 12. Create a 3x3x3 array with random values (★☆☆) \n",
+        "(**hint**: np.random.random)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "c9GYkD-rlo6Z"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random((3,3,3))\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Sz9PxLdFlo6Z"
+      },
+      "source": [
+        "#### 13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆) \n",
+        "(**hint**: min, max)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "vU0SFbpKlo6a"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random((10,10))\n",
+        "Zmin, Zmax = Z.min(), Z.max()\n",
+        "print(Zmin, Zmax)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "K70B1BAMlo6b"
+      },
+      "source": [
+        "#### 14. Create a random vector of size 30 and find the mean value (★☆☆) \n",
+        "(**hint**: mean)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "k7ABZx9Qlo6c"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random(30)\n",
+        "m = Z.mean()\n",
+        "print(m)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "I2MR-5ltlo6d"
+      },
+      "source": [
+        "#### 15. Create a 2d array with 1 on the border and 0 inside (★☆☆) \n",
+        "(**hint**: array\\[1:-1, 1:-1\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "pHXoXVZVlo6e"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.ones((10,10))\n",
+        "Z[1:-1,1:-1] = 0\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZDwHFNLilo6e"
+      },
+      "source": [
+        "#### 16. How to add a border (filled with 0's) around an existing array? (★☆☆) \n",
+        "(**hint**: np.pad)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Nktmh1fOlo6m"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.ones((5,5))\n",
+        "Z = np.pad(Z, pad_width=1, mode='constant', constant_values=0)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "teez4-Ralo6m"
+      },
+      "source": [
+        "#### 17. What is the result of the following expression? (★☆☆) \n",
+        "(**hint**: NaN = not a number, inf = infinity)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NP13opvjlo6n"
+      },
+      "source": [
+        "```python\n",
+        "0 * np.nan\n",
+        "np.nan == np.nan\n",
+        "np.inf > np.nan\n",
+        "np.nan - np.nan\n",
+        "0.3 == 3 * 0.1\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "dethGojklo6o"
+      },
+      "outputs": [],
+      "source": [
+        "print(0 * np.nan)\n",
+        "print(np.nan == np.nan)\n",
+        "print(np.inf > np.nan)\n",
+        "print(np.nan - np.nan)\n",
+        "print(np.nan in set([np.nan]))\n",
+        "print(0.3 == 3 * 0.1)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "l2IsqdOBlo6p"
+      },
+      "source": [
+        "#### 18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆) \n",
+        "(**hint**: np.diag)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "7l3Udev3lo6q"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.diag(1+np.arange(4),k=-1)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HQApa5Qxlo6r"
+      },
+      "source": [
+        "#### 19. Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆) \n",
+        "(**hint**: array\\[::2\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "uQR9Eeielo6s"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros((8,8),dtype=int)\n",
+        "Z[1::2,::2] = 1\n",
+        "Z[::2,1::2] = 1\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "DsjT3jzalo6t"
+      },
+      "source": [
+        "#### 20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element? \n",
+        "(**hint**: np.unravel_index)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "YAiqrqUdlo6v"
+      },
+      "outputs": [],
+      "source": [
+        "print(np.unravel_index(99,(6,7,8)))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZclopgSZlo69"
+      },
+      "source": [
+        "#### 21. Create a checkerboard 8x8 matrix using the tile function (★☆☆) \n",
+        "(**hint**: np.tile)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "rhaRBwiZlo6-"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.tile( np.array([[0,1],[1,0]]), (4,4))\n",
+        "print(Z)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YVC0rAm7lo6_"
+      },
+      "source": [
+        "#### 22. Normalize a 5x5 random matrix (★☆☆) \n",
+        "(**hint**: (x - min) / (max - min))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ZaTjszt-lo7A"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random((5,5))\n",
+        "Z = (Z - np.mean (Z)) / (np.std (Z))\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KXBDxtBalo7B"
+      },
+      "source": [
+        "#### 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆) \n",
+        "(**hint**: np.dtype)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "ThTWNPRxlo7C"
+      },
+      "outputs": [],
+      "source": [
+        "color = np.dtype([(\"r\", np.ubyte),\n",
+        "                  (\"g\", np.ubyte),\n",
+        "                  (\"b\", np.ubyte),\n",
+        "                  (\"a\", np.ubyte)])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4qd8JLyjlo7G"
+      },
+      "source": [
+        "#### 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆) \n",
+        "(**hint**: np.dot | @)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Mmb7xtzrlo7J"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.dot(np.ones((5,3)), np.ones((3,2)))\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UaFMiHS1lo7K"
+      },
+      "source": [
+        "#### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆) \n",
+        "(**hint**: >, <=)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WnUefBSdlo7L"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(11)\n",
+        "Z[(3 < Z) & (Z < 8)] *= -1\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0CzsbOoWlo7M"
+      },
+      "source": [
+        "#### 26. What is the output of the following script? (★☆☆) \n",
+        "(**hint**: np.sum)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CrM09mhQlo7N"
+      },
+      "source": [
+        "```python\n",
+        "# Author: Jake VanderPlas\n",
+        "\n",
+        "print(sum(range(5),-1))\n",
+        "from numpy import *\n",
+        "print(sum(range(5),-1))\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Ffl6LIY5lo7O"
+      },
+      "outputs": [],
+      "source": [
+        "print(sum(range(5),-1))\n",
+        "from numpy import *\n",
+        "print(sum(range(5),-1))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "yntzxaISlo7P"
+      },
+      "source": [
+        "#### 27. Consider an integer vector Z, which of these expressions are legal? (★☆☆)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "k8nO5I97lo7Q"
+      },
+      "source": [
+        "```python\n",
+        "Z**Z\n",
+        "2 << Z >> 2\n",
+        "Z <- Z\n",
+        "1j*Z\n",
+        "Z/1/1\n",
+        "Z<Z>Z\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "leLdmJB9lo7R"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ninlVxGrlo7T"
+      },
+      "source": [
+        "#### 28. What are the result of the following expressions?"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nJkYq9W0lo7V"
+      },
+      "source": [
+        "```python\n",
+        "np.array(0) / np.array(0)\n",
+        "np.array(0) // np.array(0)\n",
+        "np.array([np.nan]).astype(int).astype(float)\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "OfQ1_hSklo7Y",
+        "outputId": "5052a67e-48a4-4e23-c5e4-7c7d7f593b1b",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 209
+        }
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-1-2a10de0ee61b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m/\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m//\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnan\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mastype\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mastype\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfloat\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'np' is not defined"
+          ]
+        }
+      ],
+      "source": [
+        "print(np.array(0) / np.array(0))\n",
+        "print(np.array(0) // np.array(0))\n",
+        "print(np.array([np.nan]).astype(int).astype(float))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "M2x49xdjlo7a"
+      },
+      "source": [
+        "#### 29. How to round away from zero a float array ? (★☆☆) \n",
+        "(**hint**: np.uniform, np.copysign, np.ceil, np.abs)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "HkNIIHsXlo7b"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.uniform(-10,+10,10)\n",
+        "print(np.copysign(np.ceil(np.abs(Z)), Z))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UluggDCUlo7b"
+      },
+      "source": [
+        "#### 30. How to find common values between two arrays? (★☆☆) \n",
+        "(**hint**: np.intersect1d)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bt5i8Cdqlo7c"
+      },
+      "outputs": [],
+      "source": [
+        "Z1 = np.random.randint(0,10,10)\n",
+        "Z2 = np.random.randint(0,10,10)\n",
+        "print(np.intersect1d(Z1,Z2))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TTMnIOSdlo7d"
+      },
+      "source": [
+        "#### 31. How to ignore all numpy warnings (not recommended)? (★☆☆) \n",
+        "(**hint**: np.seterr, np.errstate)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "K5YMCAEOlo7e"
+      },
+      "outputs": [],
+      "source": [
+        "defaults = np.seterr(all=\"ignore\")\n",
+        "Z = np.ones(1) / 0\n",
+        "_ = np.seterr(**defaults)\n",
+        "with np.errstate(all=\"ignore\"):\n",
+        "    np.arange(3) / 0"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "vc6wxioclo7e"
+      },
+      "source": [
+        "#### 32. Is the following expressions true? (★☆☆) \n",
+        "(**hint**: imaginary number)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ihaPdTJ5lo7f"
+      },
+      "source": [
+        "```python\n",
+        "np.sqrt(-1) == np.emath.sqrt(-1)\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0V-paH3Xlo7g"
+      },
+      "outputs": [],
+      "source": [
+        "np.sqrt(-1) == np.emath.sqrt(-1)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oovEj11Ilo7h"
+      },
+      "source": [
+        "#### 33. How to get the dates of yesterday, today and tomorrow? (★☆☆) \n",
+        "(**hint**: np.datetime64, np.timedelta64)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "SetUo7mVlo7n"
+      },
+      "outputs": [],
+      "source": [
+        "yesterday = np.datetime64('today') - np.timedelta64(1)\n",
+        "today     = np.datetime64('today')\n",
+        "tomorrow  = np.datetime64('today') + np.timedelta64(1)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8ZMzs8gulo7o"
+      },
+      "source": [
+        "#### 34. How to get all the dates corresponding to the month of July 2016? (★★☆) \n",
+        "(**hint**: np.arange(dtype=datetime64\\['D'\\]))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "OsloBAX3lo7p"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange('2016-07', '2016-08', dtype='datetime64[D]')\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PZ_ygTn9lo7q"
+      },
+      "source": [
+        "#### 35. How to compute ((A+B)\\*(-A/2)) in place (without copy)? (★★☆) \n",
+        "(**hint**: np.add(out=), np.negative(out=), np.multiply(out=), np.divide(out=))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "RELWJzyUlo7r"
+      },
+      "outputs": [],
+      "source": [
+        "A = np.ones(3)*1\n",
+        "B = np.ones(3)*2\n",
+        "np.add(A,B,out=B)\n",
+        "np.divide(A,2,out=A)\n",
+        "np.negative(A,out=A)\n",
+        "np.multiply(A,B,out=A)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hE2GkIw9lo7s"
+      },
+      "source": [
+        "#### 36. Extract the integer part of a random array using 5 different methods (★★☆) \n",
+        "(**hint**: %, np.floor, np.ceil, astype, np.trunc)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "uU9DUXa3lo7t"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.uniform(0,10,10)\n",
+        "\n",
+        "print(Z - Z%1)\n",
+        "print(Z // 1)\n",
+        "print(np.floor(Z))\n",
+        "print(Z.astype(int))\n",
+        "print(np.trunc(Z))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CABSWaf2lo7u"
+      },
+      "source": [
+        "#### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆) \n",
+        "(**hint**: np.arange)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_VdUzbTalo7v"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros((5,5))\n",
+        "Z += np.arange(5)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sPBSa9wzlo7v"
+      },
+      "source": [
+        "#### 38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆) \n",
+        "(**hint**: np.fromiter)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_VsI499Ylo7w"
+      },
+      "outputs": [],
+      "source": [
+        "def generate():\n",
+        "    for x in range(10):\n",
+        "        yield x\n",
+        "Z = np.fromiter(generate(),dtype=float,count=-1)\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "X8VX4thXlo7x"
+      },
+      "source": [
+        "#### 39. Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆) \n",
+        "(**hint**: np.linspace)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "jNWnGyrUlo75"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.linspace(0,1,11,endpoint=False)[1:]\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0ikMVCaylo76"
+      },
+      "source": [
+        "#### 40. Create a random vector of size 10 and sort it (★★☆) \n",
+        "(**hint**: sort)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xAw-E95Glo77"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random(10)\n",
+        "Z.sort()\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-wYiIgNulo78"
+      },
+      "source": [
+        "#### 41. How to sum a small array faster than np.sum? (★★☆) \n",
+        "(**hint**: np.add.reduce)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EG_wmNtulo79"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(10)\n",
+        "np.add.reduce(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Eaa8WTGvlo7-"
+      },
+      "source": [
+        "#### 42. Consider two random array A and B, check if they are equal (★★☆) \n",
+        "(**hint**: np.allclose, np.array\\_equal)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2mSpbIZRlo8A"
+      },
+      "outputs": [],
+      "source": [
+        "A = np.random.randint(0,2,5)\n",
+        "B = np.random.randint(0,2,5)\n",
+        "\n",
+        "\n",
+        "equal = np.array_equal(A,B)\n",
+        "print(equal)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xYPwYluYlo8B"
+      },
+      "source": [
+        "#### 43. Make an array immutable (read-only) (★★☆) \n",
+        "(**hint**: flags.writeable)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "O-Sd-7jUlo8C"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros(10)\n",
+        "Z.flags.writeable = False\n",
+        "Z[0] = 1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9R2tcK3Wlo8D"
+      },
+      "source": [
+        "#### 44. Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆) \n",
+        "(**hint**: np.sqrt, np.arctan2)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "kG1MiPyKlo8E"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random((10,2))\n",
+        "X,Y = Z[:,0], Z[:,1]\n",
+        "R = np.sqrt(X**2+Y**2)\n",
+        "T = np.arctan2(Y,X)\n",
+        "print(R)\n",
+        "print(T)\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zbMYH0relo8I"
+      },
+      "source": [
+        "#### 45. Create random vector of size 10 and replace the maximum value by 0 (★★☆) \n",
+        "(**hint**: argmax)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WU4xVqg4lo8L"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random(10)\n",
+        "Z[Z.argmax()] = 0\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BTz5SS1mlo8M"
+      },
+      "source": [
+        "#### 46. Create a structured array with `x` and `y` coordinates covering the \\[0,1\\]x\\[0,1\\] area (★★☆) \n",
+        "(**hint**: np.meshgrid)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_LVF5W_2lo8N"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros((5,5), [('x',float),('y',float)])\n",
+        "Z['x'], Z['y'] = np.meshgrid(np.linspace(0,1,5),\n",
+        "                             np.linspace(0,1,5))\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "XZWqFW0llo8O"
+      },
+      "source": [
+        "####  47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj)) \n",
+        "(**hint**: np.subtract.outer)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "6CzdA_11lo8P"
+      },
+      "outputs": [],
+      "source": [
+        "X = np.arange(8)\n",
+        "Y = X + 0.5\n",
+        "C = 1.0 / np.subtract.outer(X, Y)\n",
+        "print(np.linalg.det(C))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ee--IYKflo8P"
+      },
+      "source": [
+        "#### 48. Print the minimum and maximum representable value for each numpy scalar type (★★☆) \n",
+        "(**hint**: np.iinfo, np.finfo, eps)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_mCs_nk5lo8Q"
+      },
+      "outputs": [],
+      "source": [
+        "for dtype in [np.int8, np.int32, np.int64]:\n",
+        "   print(np.iinfo(dtype).min)\n",
+        "   print(np.iinfo(dtype).max)\n",
+        "for dtype in [np.float32, np.float64]:\n",
+        "   print(np.finfo(dtype).min)\n",
+        "   print(np.finfo(dtype).max)\n",
+        "   print(np.finfo(dtype).eps)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4AWwKTKnlo8R"
+      },
+      "source": [
+        "#### 49. How to print all the values of an array? (★★☆) \n",
+        "(**hint**: np.set\\_printoptions)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Y4zA5LLHlo8S"
+      },
+      "outputs": [],
+      "source": [
+        "np.set_printoptions(threshold=float(\"inf\"))\n",
+        "Z = np.zeros((40,40))\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YBgl3hD-lo8S"
+      },
+      "source": [
+        "#### 50. How to find the closest value (to a given scalar) in a vector? (★★☆) \n",
+        "(**hint**: argmin)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "40I4-mIslo8Y"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.arange(100)\n",
+        "v = np.random.uniform(0,100)\n",
+        "index = (np.abs(Z-v)).argmin()\n",
+        "print(Z[index])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zbuM2n4Dlo8Z"
+      },
+      "source": [
+        "#### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆) \n",
+        "(**hint**: dtype)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "R6LiVnAdlo8b"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.zeros(10, [ ('position', [ ('x', float, 1),\n",
+        "                                  ('y', float, 1)]),\n",
+        "                   ('color',    [ ('r', float, 1),\n",
+        "                                  ('g', float, 1),\n",
+        "                                  ('b', float, 1)])])\n",
+        "print(Z)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hgstQc7Mlo8c"
+      },
+      "source": [
+        "#### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆) \n",
+        "(**hint**: np.atleast\\_2d, T, np.sqrt)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "SIemUDOflo8d"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.random((10,2))\n",
+        "X,Y = np.atleast_2d(Z[:,0], Z[:,1])\n",
+        "D = np.sqrt( (X-X.T)**2 + (Y-Y.T)**2)\n",
+        "print(D)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GWXgXr6klo8e"
+      },
+      "source": [
+        "#### 53. How to convert a float (32 bits) array into an integer (32 bits) in place? \n",
+        "(**hint**: astype(copy=False))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "dgve3r4Klo8f"
+      },
+      "outputs": [],
+      "source": [
+        "Z = (np.random.rand(10)*100).astype(np.float32)\n",
+        "Y = Z.view(np.int32)\n",
+        "Y[:] = Z\n",
+        "print(Y)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pqiDcjAhlo8g"
+      },
+      "source": [
+        "#### 54. How to read the following file? (★★☆) \n",
+        "(**hint**: np.genfromtxt)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "vfwzt_kNlo8i"
+      },
+      "source": [
+        "```\n",
+        "1, 2, 3, 4, 5\n",
+        "6,  ,  , 7, 8\n",
+        " ,  , 9,10,11\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ncrgtAoTlo8j"
+      },
+      "outputs": [],
+      "source": [
+        "from io import StringIO\n",
+        "s = StringIO('''1, 2, 3, 4, 5\n",
+        "                6,  ,  , 7, 8\n",
+        "                 ,  , 9,10,11\n",
+        "''')\n",
+        "Z = np.genfromtxt(s, delimiter=\",\", dtype=np.int)\n",
+        "print(Z)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "O4Dpu4lAlo8n"
+      },
+      "source": [
+        "#### 55. What is the equivalent of enumerate for numpy arrays? (★★☆) \n",
+        "(**hint**: np.ndenumerate, np.ndindex)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Sy5hHlBVlo8p"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "XM0ToRCVlo8q"
+      },
+      "source": [
+        "#### 56. Generate a generic 2D Gaussian-like array (★★☆) \n",
+        "(**hint**: np.meshgrid, np.exp)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "JSAKVLXhlo8r"
+      },
+      "outputs": [],
+      "source": [
+        "X, Y = np.meshgrid(np.linspace(-1,1,10), np.linspace(-1,1,10))\n",
+        "D = np.sqrt(X*X+Y*Y)\n",
+        "sigma, mu = 1.0, 0.0\n",
+        "G = np.exp(-( (D-mu)**2 / ( 2.0 * sigma**2 ) ) )\n",
+        "print(G)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "AMG_fL2qlo8s"
+      },
+      "source": [
+        "#### 57. How to randomly place p elements in a 2D array? (★★☆) \n",
+        "(**hint**: np.put, np.random.choice)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "3EsUhWlalo8t"
+      },
+      "outputs": [],
+      "source": [
+        "n = 10\n",
+        "p = 3\n",
+        "Z = np.zeros((n,n))\n",
+        "np.put(Z, np.random.choice(range(n*n), p, replace=False),1)\n",
+        "print(Z)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6e_Qmd0Rlo8u"
+      },
+      "source": [
+        "#### 58. Subtract the mean of each row of a matrix (★★☆) \n",
+        "(**hint**: mean(axis=,keepdims=))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "5kbKcTrelo8v"
+      },
+      "outputs": [],
+      "source": [
+        "X = np.random.rand(5, 10)\n",
+        "\n",
+        "\n",
+        "Y = X - X.mean(axis=1, keepdims=True)\n",
+        "\n",
+        "print(Y)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rlp98hdblo8w"
+      },
+      "source": [
+        "#### 59. How to sort an array by the nth column? (★★☆) \n",
+        "(**hint**: argsort)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_MNebxiplo8x"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.randint(0,10,(3,3))\n",
+        "print(Z)\n",
+        "print(Z[Z[:,1].argsort()])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "tRguAOK7lo8y"
+      },
+      "source": [
+        "#### 60. How to tell if a given 2D array has null columns? (★★☆) \n",
+        "(**hint**: any, ~)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Y6ItzARElo80"
+      },
+      "outputs": [],
+      "source": [
+        "Z = np.random.randint(0,3,(3,10))\n",
+        "print((~Z.any(axis=0)).any())\n",
+        "\n",
+        "# null : np.nan\n",
+        "Z=np.array([\n",
+        "    [0,1,np.nan],\n",
+        "    [1,2,np.nan],\n",
+        "    [4,5,np.nan]\n",
+        "])\n",
+        "print(np.isnan(Z).all(axis=0))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2JnXhm_elo80"
+      },
+      "source": [
+        "#### 61. Find the nearest value from a given value in an array (★★☆) \n",
+        "(**hint**: np.abs, argmin, flat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "eJs-D6cflo82"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nfqEo-HBlo8-"
+      },
+      "source": [
+        "#### 62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆) \n",
+        "(**hint**: np.nditer)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "QXRiON_elo8_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_WTboXWvlo9A"
+      },
+      "source": [
+        "#### 63. Create an array class that has a name attribute (★★☆) \n",
+        "(**hint**: class method)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EoV2DcWAlo9B"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oPyRuTJZlo9B"
+      },
+      "source": [
+        "#### 64. Consider a given vector, how to add 1 to each element indexed by a second vector (be careful with repeated indices)? (★★★) \n",
+        "(**hint**: np.bincount | np.add.at)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nkjpAUCFlo9D"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "DZTUgrT4lo9D"
+      },
+      "source": [
+        "#### 65. How to accumulate elements of a vector (X) to an array (F) based on an index list (I)? (★★★) \n",
+        "(**hint**: np.bincount)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "l4Ve9EZMlo9F"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fy92u4wPlo9N"
+      },
+      "source": [
+        "#### 66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★★) \n",
+        "(**hint**: np.unique)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "24UgtC06lo9O"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NGGpbIVQlo9P"
+      },
+      "source": [
+        "#### 67. Considering a four dimensions array, how to get sum over the last two axis at once? (★★★) \n",
+        "(**hint**: sum(axis=(-2,-1)))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Ah9UPI_Slo9Q"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "DUpQ1Hn8lo9R"
+      },
+      "source": [
+        "#### 68. Considering a one-dimensional vector D, how to compute means of subsets of D using a vector S of same size describing subset  indices? (★★★) \n",
+        "(**hint**: np.bincount)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "5NCU0Bw3lo9S"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fLPOnEvLlo9S"
+      },
+      "source": [
+        "#### 69. How to get the diagonal of a dot product? (★★★) \n",
+        "(**hint**: np.diag)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "FdiH9p4Vlo9T"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1qK-BfIdlo9T"
+      },
+      "source": [
+        "#### 70. Consider the vector \\[1, 2, 3, 4, 5\\], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★) \n",
+        "(**hint**: array\\[::4\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "3qctCgUklo9V"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7BvjiHbvlo9V"
+      },
+      "source": [
+        "#### 71. Consider an array of dimension (5,5,3), how to mulitply it by an array with dimensions (5,5)? (★★★) \n",
+        "(**hint**: array\\[:, :, None\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "oD62_1Xklo9W"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8kBvf26Alo9g"
+      },
+      "source": [
+        "#### 72. How to swap two rows of an array? (★★★) \n",
+        "(**hint**: array\\[\\[\\]\\] = array\\[\\[\\]\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "LUjGKpYblo9j"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Gp-1ZE7Elo9l"
+      },
+      "source": [
+        "#### 73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the  triangles (★★★) \n",
+        "(**hint**: repeat, np.roll, np.sort, view, np.unique)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IwnrFXmMlo9l"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "m1jndIjJlo9m"
+      },
+      "source": [
+        "#### 74. Given an array C that is a bincount, how to produce an array A such that np.bincount(A) == C? (★★★) \n",
+        "(**hint**: np.repeat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bd8-NdbGlo9q"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GwkxAnCllo9s"
+      },
+      "source": [
+        "#### 75. How to compute averages using a sliding window over an array? (★★★) \n",
+        "(**hint**: np.cumsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "LooadXwhlo9u"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7LhTv-7Llo9u"
+      },
+      "source": [
+        "#### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z\\[0\\],Z\\[1\\],Z\\[2\\]) and each subsequent row is  shifted by 1 (last row should be (Z\\[-3\\],Z\\[-2\\],Z\\[-1\\]) (★★★) \n",
+        "(**hint**: from numpy.lib import stride_tricks)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "LNzsLwFZlo9w"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wY4CexR0lo9x"
+      },
+      "source": [
+        "#### 77. How to negate a boolean, or to change the sign of a float inplace? (★★★) \n",
+        "(**hint**: np.logical_not, np.negative)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xiDDCjGwlo9y"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "w5r7-Hsolo9z"
+      },
+      "source": [
+        "#### 78. Consider 2 sets of points P0,P1 describing lines (2d) and a point p, how to compute distance from p to each line i  (P0\\[i\\],P1\\[i\\])? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xS5e8IS4lo90"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zfdsNsN0lo90"
+      },
+      "source": [
+        "#### 79. Consider 2 sets of points P0,P1 describing lines (2d) and a set of points P, how to compute distance from each point j (P\\[j\\]) to each line i (P0\\[i\\],P1\\[i\\])? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WE-z4SRhlo91"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gRIT0-4Glo92"
+      },
+      "source": [
+        "#### 80. Consider an arbitrary array, write a function that extract a subpart with a fixed shape and centered on a given element (pad with a `fill` value when necessary) (★★★) \n",
+        "(**hint**: minimum, maximum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "CqHT53Hjlo93"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gEU1mAQUlo94"
+      },
+      "source": [
+        "#### 81. Consider an array Z = \\[1,2,3,4,5,6,7,8,9,10,11,12,13,14\\], how to generate an array R = \\[\\[1,2,3,4\\], \\[2,3,4,5\\], \\[3,4,5,6\\], ..., \\[11,12,13,14\\]\\]? (★★★) \n",
+        "(**hint**: stride\\_tricks.as\\_strided)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "TeXAc4Pclo-C"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f4FS5GYwlo-H"
+      },
+      "source": [
+        "#### 82. Compute a matrix rank (★★★) \n",
+        "(**hint**: np.linalg.svd) (suggestion: np.linalg.svd)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "su-XOzTIlo-I"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wLliCQaplo-Q"
+      },
+      "source": [
+        "#### 83. How to find the most frequent value in an array? \n",
+        "(**hint**: np.bincount, argmax)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ADMPhWiTlo-R"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lMnvHFR9lo-W"
+      },
+      "source": [
+        "#### 84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix (★★★) \n",
+        "(**hint**: stride\\_tricks.as\\_strided)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "iLqD61P3lo-X"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "5rSVOTp8lo-X"
+      },
+      "source": [
+        "#### 85. Create a 2D array subclass such that Z\\[i,j\\] == Z\\[j,i\\] (★★★) \n",
+        "(**hint**: class method)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "B00dTOtvlo-Y"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Kj-l2VoKlo-Z"
+      },
+      "source": [
+        "#### 86. Consider a set of p matrices wich shape (n,n) and a set of p vectors with shape (n,1). How to compute the sum of of the p matrix products at once? (result has shape (n,1)) (★★★) \n",
+        "(**hint**: np.tensordot)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "At-REUc6lo-o"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qjSy4yV7lo-q"
+      },
+      "source": [
+        "#### 87. Consider a 16x16 array, how to get the block-sum (block size is 4x4)? (★★★) \n",
+        "(**hint**: np.add.reduceat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "A5otuu_mlo-0"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1t3v4dEOlo-1"
+      },
+      "source": [
+        "#### 88. How to implement the Game of Life using numpy arrays? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xYll_nVulo-2"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "5rI9Y9AVlo-3"
+      },
+      "source": [
+        "#### 89. How to get the n largest values of an array (★★★) \n",
+        "(**hint**: np.argsort | np.argpartition)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BRX34bU_lo-3"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "l0vAETP5lo-4"
+      },
+      "source": [
+        "#### 90. Given an arbitrary number of vectors, build the cartesian product (every combinations of every item) (★★★) \n",
+        "(**hint**: np.indices)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "scrolled": true,
+        "id": "03AIZTKnlo-5"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "tZ2khINflo-5"
+      },
+      "source": [
+        "#### 91. How to create a record array from a regular array? (★★★) \n",
+        "(**hint**: np.core.records.fromarrays)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bR87ScQPlo-5"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9jJAVF6dlo-6"
+      },
+      "source": [
+        "#### 92. Consider a large vector Z, compute Z to the power of 3 using 3 different methods (★★★) \n",
+        "(**hint**: np.power, \\*, np.einsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "YvDan06Jlo-7"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_6OmnIK0lo-8"
+      },
+      "source": [
+        "#### 93. Consider two arrays A and B of shape (8,3) and (2,2). How to find rows of A that contain elements of each row of B regardless of the order of the elements in B? (★★★) \n",
+        "(**hint**: np.where)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "dSe_oWbxlo_D"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MFHpHukhlo_F"
+      },
+      "source": [
+        "#### 94. Considering a 10x3 matrix, extract rows with unequal values (e.g. \\[2,2,3\\]) (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "41cM0Mnjlo_G"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7ohJSfcDlo_G"
+      },
+      "source": [
+        "#### 95. Convert a vector of ints into a matrix binary representation (★★★) \n",
+        "(**hint**: np.unpackbits)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0Rn1XZhMlo_H"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "H-j4NidZlo_I"
+      },
+      "source": [
+        "#### 96. Given a two dimensional array, how to extract unique rows? (★★★) \n",
+        "(**hint**: np.ascontiguousarray)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "SBudJkMXlo_J"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "FmYsjTBWlo_J"
+      },
+      "source": [
+        "#### 97. Considering 2 vectors A & B, write the einsum equivalent of inner, outer, sum, and mul function (★★★) \n",
+        "(**hint**: np.einsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BebvEH6Llo_K"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gHr4wp29lo_L"
+      },
+      "source": [
+        "#### 98. Considering a path described by two vectors (X,Y), how to sample it using equidistant samples (★★★)? \n",
+        "(**hint**: np.cumsum, np.interp)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "S144nEFdlo_Q"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mshOvSxclo_V"
+      },
+      "source": [
+        "#### 99. Given an integer n and a 2D array X, select from X the rows which can be interpreted as draws from a multinomial distribution with n degrees, i.e., the rows which only contain integers and which sum to n. (★★★) \n",
+        "(**hint**: np.logical\\_and.reduce, np.mod)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bE0nJtDalo_W"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "LZN9mXQ0lo_X"
+      },
+      "source": [
+        "#### 100. Compute bootstrapped 95% confidence intervals for the mean of a 1D array X (i.e., resample the elements of an array with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★) \n",
+        "(**hint**: np.percentile)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "lBXa3rwKlo_Y"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8.3"
+    },
+    "colab": {
+      "provenance": []
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
